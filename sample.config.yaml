@@ -1,0 +1,6 @@
+
+twitter :
+  consumer_key : '' ## => http://dev.twitter.com
+  consumer_secret : '' ## => http://dev.twitter.com
+  access_token : ''
+  access_secret : ''
