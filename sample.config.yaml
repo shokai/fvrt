@@ -4,3 +4,8 @@ twitter :
   consumer_secret : '' ## => http://dev.twitter.com
   access_token : ''
   access_secret : ''
+
+mongo :
+  host : localhost
+  port : 27017
+  database : fvrt
