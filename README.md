@@ -28,3 +28,8 @@ Store Tweets
 ------------
 
     % ruby -Ku bin/stream_store_mongo.rb
+
+Console
+-------
+
+    % bin/console
