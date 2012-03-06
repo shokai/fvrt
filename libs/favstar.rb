@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'simple-rss'
 require 'open-uri'
-require 'hashie'
 
 class Favstar
   class Error < StandardError
