@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
-require 'rubygems'
-require 'user_stream'
 require File.dirname(__FILE__)+'/../bootstrap'
+require 'user_stream'
+
 
 UserStream.configure do |config|
   config.consumer_key = @@conf['twitter']['consumer_key']
