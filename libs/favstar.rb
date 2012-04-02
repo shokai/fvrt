@@ -35,6 +35,6 @@ if __FILE__ == $0
   user = ARGV.empty? ? 'shokai' : ARGV.shift
 
   Favstar.recent_favs(user).each do |fav|
-    puts "#{'★'*fav.count} #{fav.text} [id:#{fav.id}]"
+    puts "[#{'*'*fav.count}] #{fav.text} [id:#{fav.id}]"
   end
 end
