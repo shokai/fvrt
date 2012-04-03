@@ -11,6 +11,7 @@ first, params = parser.parse ARGV
 
 if parser.has_option(:help)
   puts parser.help
+  puts "e.g.  ruby -Ku #{$0} --verbose"
   exit 1
 end
 
