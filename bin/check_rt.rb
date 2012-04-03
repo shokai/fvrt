@@ -42,10 +42,10 @@ loop do
       sc.checked_at = Time.now
       sc.save
     rescue Twitter::Error::NotFound => e
-      STDERR.puts e.color(:red)
+      STDERR.puts e.to_s.color(:red)
       sc.delete
     rescue => e
-      STDERR.puts e.color(:red)
+      STDERR.puts e.to_s.color(:red)
     end
   end
   break unless params[:loop]
