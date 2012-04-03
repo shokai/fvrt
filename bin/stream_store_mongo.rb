@@ -23,14 +23,12 @@ end
 
 c = UserStream::Client.new
 c.user do |s|
+  status_id = s['id'] || 'unknown'
   begin
-    next unless s.id
-    s.id_ = s.id
-    s.id = nil
-    st = StreamTweet.new(s)
-    st.save
-    p st if params[:verbose]
+    c = StreamChunk.new(s)
+    c.save
+    p c if params[:verbose]
   rescue => e
-    STDERR.puts "error!! (tweet_id:\"#{s.id}\") #{e}".color(:red)
+    STDERR.puts "error!! (tweet_id:\"#{status_id}\") #{e}".color(:red)
   end
 end
