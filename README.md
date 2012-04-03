@@ -34,7 +34,7 @@ Store Tweets
 Check ReTweets
 
     % ruby -Ku bin/check_rb.rb --help
-    % ruby -Ku bin/check_rb.rb --loop -i 5
+    % ruby -Ku bin/check_rb.rb --loop -i 300
 
 
 Console
