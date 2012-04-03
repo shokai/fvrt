@@ -1,6 +1,18 @@
 #!/usr/bin/env ruby
 require File.dirname(__FILE__)+'/../bootstrap'
 require 'user_stream'
+require 'ArgsParser'
+
+parser = ArgsParser.parser
+parser.comment(:verbose, 'verbose')
+parser.bind(:help, :h, 'show help')
+
+first, params = parser.parse ARGV
+
+if parser.has_option(:help)
+  puts parser.help
+  exit 1
+end
 
 UserStream.configure do |config|
   config.consumer_key = @@conf['twitter']['consumer_key']
@@ -12,16 +24,13 @@ end
 c = UserStream::Client.new
 c.user do |s|
   begin
-    id = 'null'
-    if s.id
-      id = s.id
-      s.id_ = s.id
-      s.id = nil
-    end
+    next unless s.id
+    s.id_ = s.id
+    s.id = nil
     st = StreamTweet.new(s)
     st.save
-    p st
+    p st if params[:verbose]
   rescue => e
-    STDERR.puts "error!! (tweet_id:\"#{id}\") #{e}".color(:red)
+    STDERR.puts "error!! (tweet_id:\"#{s.id}\") #{e}".color(:red)
   end
 end

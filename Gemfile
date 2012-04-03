@@ -1,5 +1,6 @@
 source :rubygems
 
+gem 'ArgsParser'
 gem 'twitter'
 gem 'userstream'
 gem 'rainbow'
