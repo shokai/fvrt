@@ -47,9 +47,10 @@ Twitter API Console
 -------------------
 
     % bin/twitter_api_console
+    > Twitter.rate_limit_status
 
 
 Check API Hourly limit
+----------------------
 
-    > Twitter.rate_limit_status
-    > Twitter.rate_limit_status.remaining_hits
+    % bin/api_limit
