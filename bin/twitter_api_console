@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby -Ku
+require File.dirname(__FILE__)+'/../bootstrap'
+require 'twitter'
+require 'pp'
+require 'irb'
+
+Twitter.configure do |config|
+  config.consumer_key = @@conf['twitter']['consumer_key']
+  config.consumer_secret = @@conf['twitter']['consumer_secret']
+  config.oauth_token = @@conf['twitter']['access_token']
+  config.oauth_token_secret = @@conf['twitter']['access_secret']
+end
+
+IRB.start
