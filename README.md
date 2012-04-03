@@ -27,9 +27,29 @@ put access_token and access_secret into config.yaml
 Store Tweets
 ------------
 
-    % ruby -Ku bin/stream_store_mongo.rb
+    % ruby -Ku bin/stream_store_mongo.rb --help
+    % ruby -Ku bin/stream_store_mongo.rb --verbose
+
+
+Check ReTweets
+
+    % ruby -Ku bin/check_rb.rb --help
+    % ruby -Ku bin/check_rb.rb --verbose --loop -i 5
+
 
 Console
 -------
 
     % bin/console
+
+
+Twitter API Console
+-------------------
+
+    % bin/twitter_api_console
+
+
+Check API Hourly limit
+
+    > Twitter.rate_limit_status
+    > Twitter.rate_limit_status.remaining_hits

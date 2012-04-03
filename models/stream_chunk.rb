@@ -1,7 +1,9 @@
 
 class StreamChunk
   include Mongoid::Document
-  field :checked_at, :type => Time, :default => nil
+  field :checked_at, :type => Time, :default => lambda{ Time.now }
+  field :stored_at, :type => Time, :default => lambda{ Time.now }
+  field :retweeters, :type => Array, :default => []
 
   def self.find_tweet
     self.where(:_id.exists => true,
@@ -19,14 +21,8 @@ class StreamChunk
     self.where(:text.exists => false)
   end
 
-  def self.find_not_checked_tweet
-    self.find_tweet.where(:checked_at.exists => false)
-  end
-
   def self.find_oldest_checked_tweet
-    self.find_tweet.
-      where(:_id.exists => true,
-            :checked_at.exists => true).desc(:checked_at)
+    self.find_tweet.asc(:checked_at)
   end
 
   def url
