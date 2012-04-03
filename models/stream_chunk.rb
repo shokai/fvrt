@@ -21,8 +21,10 @@ class StreamChunk
     self.where(:text.exists => false)
   end
 
-  def self.find_oldest_checked_tweet
-    self.find_tweet.asc(:checked_at)
+  def self.find_oldest_checked_tweet(interval_sec=300)
+    self.find_tweet.
+      where(:checked_at.lt => Time.now-interval_sec.to_i).
+      asc(:checked_at)
   end
 
   def url
