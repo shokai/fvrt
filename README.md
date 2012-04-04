@@ -24,19 +24,6 @@ Auth
 put access_token and access_secret into config.yaml
 
 
-Store Tweets
-------------
-
-    % ruby -Ku bin/stream_store_mongo.rb --help
-    % ruby -Ku bin/stream_store_mongo.rb --verbose
-
-
-Check ReTweets
-
-    % ruby -Ku bin/check_rb.rb --help
-    % ruby -Ku bin/check_rb.rb --loop -i 300
-
-
 Console
 -------
 
